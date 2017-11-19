@@ -23,27 +23,32 @@ function onReady() {
         var num1 = $("#firstNumber").val();
         var num2 = $("#secondNumber").val();
         var operation = $("#operation").val();
-        console.log("x:" + num1 + " y:" + num2 + " operation:" + operation);
-        $.ajax({
-            type: 'POST',
-            url: '/calculate/new',
-            data: {
-                x: num1,
-                y: num2,
-                type: operation
-            },
-            success: function (response) {
-                console.log('In success in the calculateResult function:', response);
-                $('#result').replaceWith('<div id="result"><h4> The answer is ' + response.result + '!</h4></div>');
-                $('#clearButton').show();
-                var currentCalculation = [response.numberOne, response.operation, response.numberTwo, response.equals, response.result];
-                console.log("This is what is going into currentCalculation: " + currentCalculation)
-                addCalculation(currentCalculation);
-            }
-            // })
-            // console.log("This is currentCalculation after AJAX: " + currentCalculation)
-            // addCalculation();
-        })
+        if (isNaN(num1) || isNaN(num2)) {
+            alert("Are you sure you entered numbers in the fields?");
+        }
+        else {
+            console.log("x:" + num1 + " y:" + num2 + " operation:" + operation);
+            $.ajax({
+                type: 'POST',
+                url: '/calculate/new',
+                data: {
+                    x: num1,
+                    y: num2,
+                    type: operation
+                },
+                success: function (response) {
+                    console.log('In success in the calculateResult function:', response);
+                    $('#result').replaceWith('<div id="result"><h4> The answer is ' + response.result + '!</h4></div>');
+                    $('#clearButton').show();
+                    var currentCalculation = [response.numberOne, response.operation, response.numberTwo, response.equals, response.result];
+                    console.log("This is what is going into currentCalculation: " + currentCalculation)
+                    addCalculation(currentCalculation);
+                }
+                // })
+                // console.log("This is currentCalculation after AJAX: " + currentCalculation)
+                // addCalculation();
+            })
+        }
     };
     function startOver() {
         $.ajax({
