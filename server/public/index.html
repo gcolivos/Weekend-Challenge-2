@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./vendors/jquery-3.1.0.min.js"></script>
+    <script src="./scripts/client.js"></script>
+    <title>Weekend Challenge 2: Calculator</title>
+</head>
+
+<body>
+    <H1>Weekend Challenge 2: Calculator</H1>
+    <H3>Input two numbers in the fields below and choose an operation!</H3>
+    <div id="calculatorDiv">
+        <input type="text" id="firstNumber" value="Enter first number here">
+        </br>
+        <input type="text" id="secondNumber" value="Enter second number here">
+        </br>
+        <select id="operation">
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="multiply">Multiply</option>
+            <option value="divide">Divide</option>
+        </select>
+        <button id="calculateButton">Calculate!</button>
+    </div>
+    <div id="result">
+    </div>
+    <div id="clear">
+        <button id="clearButton">Start Over?</button>
+    </div>
+
+</body>
+
+</html>
