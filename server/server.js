@@ -6,7 +6,7 @@ var app = express();
 var port = 5000;
 var bodyParser = require('body-parser');
 var welcome = require('./routes/welcome');
-var calculation = require('./routes/calculate');
+var calculate = require('./routes/calculate');
 var clearIt = require('./routes/clear.js');
 
 // express static file serving - public is the folder name
@@ -16,7 +16,7 @@ app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/welcome', welcome);
-app.use('/calculate', calculation);
+app.use('/calculate', calculate);
 app.use('/clear', clearIt);
 
 // Start up our server

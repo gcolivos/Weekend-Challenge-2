@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var calculate_data = require('../modules/calculate_data');
 
-function calculateInput(req, res) {
+router.post('/new', function (req, res) {
     console.log('req.body in calculate function', req.body);
     if (req.body.type == "add") {
         var operationSymbol = "+";
@@ -24,16 +24,21 @@ function calculateInput(req, res) {
         equals: "=",
         result: answer
     }
-    console.log (result_to_send);
+    console.log(result_to_send);
     res.send(result_to_send)
-};
-
-router.post('/new', function(req, res){
-    console.log("we hit the post");
-    console.log('req.body in new quote post', req.body);
-    quotes_data.push({quoteText: req.body.quote_to_add})
-    console.log(quotes_data);
-    res.sendStatus(200);
 });
 
-module.exports = calculateInput;
+router.post('/data', function (req, res) {
+    console.log("This route is working it is actually getting here");
+    console.log('req.body in new calculation post', req.body);
+    calculate_data.push([req.body.firstNum, req.body.operation, req.body.secondNum, req.body.equals, req.body.result]);
+    console.log(calculate_data);
+    var thisCalc = [req.body.firstNum, req.body.operation, req.body.secondNum, req.body.equals, req.body.result];
+    res.send(thisCalc);
+});
+
+router.get('/all', function (req, res) {
+    res.send(calculate_data);
+});
+
+module.exports = router;

@@ -1,6 +1,5 @@
-function calculatorWelcome(req,res){
-    res.send("Welcome to the best calculator ever!");
-  }
-  
-  module.exports = calculatorWelcome;
-  
+function calculatorWelcome(req, res) {
+  res.send("Calculator? Why not Calcu-NOW!");
+}
+
+module.exports = calculatorWelcome;
