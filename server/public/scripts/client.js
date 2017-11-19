@@ -37,6 +37,16 @@ function calculateResult(x, y, z) {
             console.log('operations data recieved:', response);
             $('#result').replaceWith('<div id="result"><h4> The answer is ' + response.result + '!</h4></div>');
             $('#clearButton').show();
+            // $.ajax({
+            //     method: 'POST',
+            //     url: '/calculate/data',
+            //     data: { response }, //data should always be an object
+            //     success: function (response) {
+            //         console.log('new quote post response:', response);
+            //         clickCounter++;
+            //         getAllQuotes();
+            //     }
+            // })
         },
         error: function (error) {
             console.log('The "/calculate" ajax post request failed with error: ', error);
