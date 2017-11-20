@@ -13,27 +13,56 @@
 
 <body>
     <H1>Weekend 2: Calculator</H1>
-    <H3>Input two numbers in the fields below and choose an operation!</H3>
+    <H3>The ultimate calculating experience.</H3>
+    
     <div id="allResults">
         <H3>History</H3>
     </div>
+    
     <div id="calculatorDiv">
-        <input type="text" id="firstNumber" value="Enter first number here">
-        </br>
-        <input type="text" id="secondNumber" value="Enter second number here">
-        </br>
-        <select id="operation">
-            <option value="add">Add</option>
-            <option value="subtract">Subtract</option>
-            <option value="multiply">Multiply</option>
-            <option value="divide">Divide</option>
-        </select>
-        <button id="calculateButton">Calculate!</button>
+
+        <div id="firstNumberDiv">
+            <H3>Pick a number, any number.</H3>
+            <input type="number" id="firstNumber">
+            <button id="firstNumButton">Ok, what's next?</button>
+        </div>
+
+        <div id="operationDiv">
+            <H3>Well, what operation do you want to perform on your number?</H3>
+            <select id="operation">
+                <option value="add">Add</option>
+                <option value="subtract">Subtract</option>
+                <option value="multiply">Multiply</option>
+                <option value="divide">Divide</option>
+            </select>
+            <button id="operationButton">'Operation: Picked An Operation' complete</button>
+        </div>
+
+        <div id="secondNumberDiv">
+            <H3>One more part to this equation...what's your second number?</H3>
+            <input type="number" id="secondNumber">
+            <button id="secondNumButton">I click with baited breath...</button>
+        </div>
+
+        <div id="finalEquationDiv">
+            <H3>Awesome! So are you ready to find out the answer to this equation?</H3></br>
+            <!-- I set this up as a table because I was initially having a hard time getting the pieces of 
+                the equation to line up side by side, just throwing them into td's for display purposes 
+                was cleaner -->
+            <table id="equationToSolve">
+                <thead>
+                </thead>
+                <tbody id="equationToSolveTBody">
+                </tbody>
+            </table>
+            <button id="calculateButton">OK. Now I'm ready. Let's see it.</button>
+        </div>
     </div>
+
     <div id="result">
     </div>
     <div id="clear">
-        <button id="clearButton">Start Over?</button>
+        <button id="clearButton">Amazing stuff. Let's do it again.</button>
     </div>
 
 </body>
